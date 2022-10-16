@@ -276,10 +276,10 @@ class Mentor:
         self.surname = surname
         self.courses_attached = []
 
-        def rate_lecturer(self):
-            return super().rate_lecturer
-        def rate_hw(self):
-            return super().rate_hw
+        # def rate_lecturer(self):
+        #     return super().rate_lecturer
+        # def rate_hw(self):
+        #     return super().rate_hw
 
 class Lecturer(Mentor):
     def __init__(self, name, surname):
@@ -360,16 +360,16 @@ student_1.rate_lecturer(mentor_lectrer, 'Git', 10)
 student_2.rate_lecturer(mentor_lectrer_2, 'Python', 10)
 student_2.rate_lecturer(mentor_lectrer_2, 'Git', 8)
 
-#print(student_1.grades)
-#print(student_2.grades)
-#print(mentor_lectrer.grades_1)
-#print(mentor_1)
-#print(mentor_lectrer)
-#print(mentor_lectrer_2)
-#print(student_2)
-#print(student_1)
-#print(student_1 < student_2)
-#print(mentor_lectrer < mentor_lectrer_2)
+print(student_1.grades)
+print(student_2.grades)
+print(mentor_lectrer.grades_1)
+print(mentor_1)
+print(mentor_lectrer)
+print(mentor_lectrer_2)
+print(student_2)
+print(student_1)
+print(student_1 < student_2)
+print(mentor_lectrer < mentor_lectrer_2)
 
 
 def average_S(list, name_cource):
