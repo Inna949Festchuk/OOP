@@ -1,138 +1,3 @@
-class Student:
-   def __init__(self, name, surname, gender):
-        self.name = name
-        self.surname =z surname
-        self.gender = gender
-        self.finished_courses = []
-        self.courses_in_progress = []
-        self.grades = {}
-
-    def rate_lecturer(self, lecturer, course, grade):
-        if isinstance(lecturer, Lecturer) and course in lecturer.courses_attached and course in self.courses_in_progress:
-            if course in lecturer.grades_1:
-                lecturer.grades_1[course] += grade
-            else:
-                lecturer.grades_1[course] = grade
-        else:
-            return 'Упс'
-        
-class Mentor:
-    def __init__(self, name, surname):
-        self.name = name
-        self.surname = surname
-        self.courses_attached = []
-
-class Lecturer(Mentor):
-    def __init__(self, name, surname):
-        super().__init__(name, surname)
-        self.grades_1 = {}
-
-
-class Reviewer(Mentor):
-    def __init__(self, name, surname):
-        super().__init__(name, surname)
-    def rate_hw(self, student, course, grade):
-        if isinstance(student, Student) and course in self.courses_attached and course in student.courses_in_progress:
-            if course in student.grades:
-                student.grades[course] += [grade]
-            else:
-                student.grades[course] = [grade]
-        else:
-            return 'Ошибка'
-
-
-Boris = Student('Boris', 'Ivanov', 'man')
-mentor_1 = Mentor('Yana', 'Petrova')
-Boris.courses_in_progress += ['Python']
-mentor_1.courses_attached += ['Python']
-mentor_1.rate_hw(Boris, 'Python', 10)
-mentor_1.rate_hw(Boris, 'Python', 10)
-Boris.rate_lecturer(mentor_1, 'Python', 10)
-print(Boris.grades)
-print(Boris.grades_1)
-
-
-# ВАРИАНТ КОДА ВЕРНЫЙ
-class Student:
-    def __init__(self, name, surname, gender):
-        self.name = name
-        self.surname = surname
-        self.gender = gender
-        self.finished_courses = []
-        self.courses_in_progress = []
-        self.grades = {}
-
-    def rate_lecturer(self, lecturer, course, grade):
-        if isinstance(lecturer, Lecturer) and course in lecturer.courses_attached and course in self.courses_in_progress:
-            if course in lecturer.grades_1:
-                lecturer.grades_1[course] += grade
-            else:
-                lecturer.grades_1[course] = grade
-        else:
-            return 'Упс'
-
-        
-class Mentor:
-    def __init__(self, name, surname):
-        self.name = name
-        self.surname = surname
-        self.courses_attached = []
-
-        def rate_lecturer(self):
-            return super().rate_lecturer
-        def rate_hw(self):
-            return super().rate_hw
-
-class Lecturer(Mentor):
-    def __init__(self, name, surname):
-        super().__init__(name, surname)
-        self.grades_1 = {}
-    def __str__(self):
-        r = f'Имя: {self.name}\nФамилия: {self.surname}'
-        #r_2 = 
-        return r
-        
-
-
-class Reviewer(Mentor):
-    #def __init__(self, name, surname):
-        #super().__init__(name, surname)
-    def rate_hw(self, student, course, grade):
-        if isinstance(student, Student) and course in self.courses_attached and course in student.courses_in_progress:
-            if course in student.grades:
-                student.grades[course] += [grade]
-            else:
-                student.grades[course] = [grade]
-        else:
-            return 'Ошибка'
-    def __str__(self):
-        r = f'Имя: {self.name}\nФамилия: {self.surname}'
-        return r
-
-
-Boris = Student('Boris', 'Ivanov', 'man')
-mentor_1 = Reviewer('Yana', 'Petrova')
-mentor_lectrer = Lecturer('Some', 'Body')
-mentor_lectrer_2 = Lecturer('Ben', 'Green')
-Boris.courses_in_progress += ['Python']
-Boris.courses_in_progress += ['C++']
-mentor_1.courses_attached += ['Python']
-mentor_1.courses_attached += ['C++']
-
-mentor_lectrer.courses_attached += ['Python']
-mentor_lectrer_2.courses_attached += ['Git']
-mentor_1.rate_hw(Boris, 'Python', 10)
-mentor_1.rate_hw(Boris, 'Python', 10)
-mentor_1.rate_hw(Boris, 'C++', 9)
-mentor_1.rate_hw(Boris, 'C++', 8)
-
-Boris.rate_lecturer(mentor_lectrer, 'Python', 10)
-Boris.rate_lecturer(mentor_lectrer, 'Python', 10)
-
-print(Boris.grades)
-print(mentor_lectrer.grades_1)
-print(mentor_1)
-
 
 class Student:
     def __init__(self, name, surname, gender):
@@ -411,10 +276,10 @@ class Mentor:
         self.surname = surname
         self.courses_attached = []
 
-        def rate_lecturer(self):
-            return super().rate_lecturer
-        def rate_hw(self):
-            return super().rate_hw
+        # def rate_lecturer(self):
+        #     return super().rate_lecturer
+        # def rate_hw(self):
+        #     return super().rate_hw
 
 class Lecturer(Mentor):
     def __init__(self, name, surname):
@@ -495,16 +360,16 @@ student_1.rate_lecturer(mentor_lectrer, 'Git', 10)
 student_2.rate_lecturer(mentor_lectrer_2, 'Python', 10)
 student_2.rate_lecturer(mentor_lectrer_2, 'Git', 8)
 
-#print(student_1.grades)
-#print(student_2.grades)
-#print(mentor_lectrer.grades_1)
-#print(mentor_1)
-#print(mentor_lectrer)
-#print(mentor_lectrer_2)
-#print(student_2)
-#print(student_1)
-#print(student_1 < student_2)
-#print(mentor_lectrer < mentor_lectrer_2)
+print(student_1.grades)
+print(student_2.grades)
+print(mentor_lectrer.grades_1)
+print(mentor_1)
+print(mentor_lectrer)
+print(mentor_lectrer_2)
+print(student_2)
+print(student_1)
+print(student_1 < student_2)
+print(mentor_lectrer < mentor_lectrer_2)
 
 
 def average_S(list, name_cource):
